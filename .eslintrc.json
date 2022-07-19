@@ -22,5 +22,12 @@
     "project": "./tsconfig.json"
   },
   "plugins": ["react", "@typescript-eslint"],
-  "rules": {}
+  "rules": {
+    "react/function-component-definition": "off",
+    "no-nested-ternary": "off",
+    "import/export": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
+    "import/extensions": "off"
+  }
 }
