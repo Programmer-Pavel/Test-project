@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import { Flex } from '../base/Flex';
+import { Text } from '../base/Text';
 
 const StyledButton = styled.button(
   (props: BtnStyleProps & ButtonProps) => `
@@ -11,6 +13,9 @@ const StyledButton = styled.button(
   cursor: pointer;
   transition: 0.2s ease-in-out;
   color: ${props.color || props.btnVisualStyles.color};
+  font-weight: 700;
+  font-size: ${props.btnSizezStyles.fontSize};
+  line-height: ${props.btnSizezStyles.lineHeight};
   
 
   :disabled {
@@ -27,26 +32,6 @@ const StyledButton = styled.button(
 
   :active {
     background: ${props.btnVisualStyles.active.background};
-  }
-
-  .button-text {
-    font-weight: 700;
-    font-size: ${props.btnSizezStyles.fontSize};
-    line-height: ${props.btnSizezStyles.lineHeight};
-    margin-right: ${props.iconSide === 'right' && props.size === 'small' ? '9px' : '12px'};
-    margin-left: ${props.iconSide === 'left' && props.size === 'small' ? '9px' : '12px'};
-  }
-
-  .inner-btn-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .inner-btn-container-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   `
 );
@@ -169,17 +154,22 @@ export const Button = ({ size, icon, iconSide, visual, iconOnly, ...props }: But
     iconOnly={iconOnly}
     {...props}
   >
-    <div className={iconOnly ? 'inner-btn-container-icon' : 'inner-btn-container'}>
+    <Flex justifyContent={iconOnly ? 'center' : 'space-between'}>
       {iconOnly ? (
         icon
       ) : (
         <>
           {iconSide === 'left' && icon}
-          <span className="button-text">{props.children}</span>
+          <Text
+            mr={iconSide === 'right' && size === 'small' ? '9px' : '12px'}
+            ml={iconSide === 'left' && size === 'small' ? '9px' : '12px'}
+          >
+            {props.children}
+          </Text>
           {iconSide === 'right' && icon}
         </>
       )}
-    </div>
+    </Flex>
   </StyledButton>
 );
 

@@ -1,5 +1,5 @@
 interface PlusIconProps {
-  color?: '#F47920' | '#BABCBC' | '#FFFFFF';
+  color?: string;
   isDisabled?: boolean;
 }
 

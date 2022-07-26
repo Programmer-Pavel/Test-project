@@ -1,13 +1,14 @@
 import './App.css';
-import { ChangeEvent, useEffect, useState, useCallback } from 'react';
-import axios from 'axios';
-import styled from '@emotion/styled';
+import { useState } from 'react';
+import { useTheme } from '@emotion/react';
 import { Box, Button, Input } from './ui-kit';
 import { IconPlusLarge } from './assets';
-import { RInput } from './ui-kit/components/rebass-input';
+import { Flex } from './ui-kit/components/base/Flex';
 
-function App() {
+export const App = () => {
   const [value, setValue] = useState<string>('');
+
+  const theme = useTheme();
 
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -15,25 +16,27 @@ function App() {
 
   return (
     <div className="App">
-      <Button
-        visual="tertiary"
-        size="large"
-        icon={<IconPlusLarge color="#F47920" />}
-      >
-        test
-      </Button>
+      <Button icon={<IconPlusLarge color={theme.colors.white} />}>test</Button>
 
-      <RInput
+      <Input
         onChange={onInputChange}
         setValue={setValue}
         value={value}
         width="300px"
-        border="1px solid red"
-        bg="red"
-        color="white"
       />
+
+      <Flex
+        height="100px"
+        bg="green"
+      >
+        <Box bg="yellow">dd</Box>
+        <Box
+          bg="blue"
+          color="white"
+        >
+          ss
+        </Box>
+      </Flex>
     </div>
   );
-}
-
-export default App;
+};

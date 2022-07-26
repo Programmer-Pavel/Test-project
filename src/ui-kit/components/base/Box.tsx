@@ -1,7 +1,32 @@
 import styled from '@emotion/styled';
-import { space, color, layout, flexbox, position, system } from 'styled-system';
+import * as CSS from 'csstype';
+import { HTMLAttributes } from 'react';
+import {
+  space,
+  color,
+  layout,
+  flexbox,
+  position,
+  system,
+  SpaceProps,
+  ColorProps,
+  LayoutProps,
+  FlexProps,
+  PositionProps,
+} from 'styled-system';
 
-export const Box = styled.div(
+export const Box = styled.div<
+  HTMLAttributes<HTMLDivElement> &
+    SpaceProps &
+    ColorProps &
+    LayoutProps &
+    FlexProps &
+    PositionProps &
+    CSS.Properties
+>(
+  {
+    boxSizing: 'border-box',
+  },
   space,
   color,
   layout,

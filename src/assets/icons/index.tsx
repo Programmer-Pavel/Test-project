@@ -1,2 +1,3 @@
 export * from './IconPlus';
-export * from './CloseAndClearIcon';
+export * from './CloseIcon';
+export * from './ClearIcon';

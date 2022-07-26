@@ -1,5 +1,6 @@
-import colors from './colors';
+import { Theme } from '@emotion/react';
+import { colors } from './colors';
 
-export const theme = {
+export const theme: Theme = {
   colors,
 };
