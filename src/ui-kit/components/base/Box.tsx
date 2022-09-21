@@ -2,7 +2,9 @@ import styled from '@emotion/styled';
 import * as CSS from 'csstype';
 import { HTMLAttributes } from 'react';
 import {
+  border,
   space,
+  shadow,
   color,
   layout,
   flexbox,
@@ -12,7 +14,9 @@ import {
   ColorProps,
   LayoutProps,
   FlexProps,
+  BorderProps,
   PositionProps,
+  ShadowProps,
 } from 'styled-system';
 
 export const Box = styled.div<
@@ -20,8 +24,10 @@ export const Box = styled.div<
     SpaceProps &
     ColorProps &
     LayoutProps &
+    ShadowProps &
     FlexProps &
     PositionProps &
+    BorderProps &
     CSS.Properties
 >(
   {
@@ -31,6 +37,8 @@ export const Box = styled.div<
   color,
   layout,
   flexbox,
+  shadow,
+  border,
   position,
   system({
     transform: {

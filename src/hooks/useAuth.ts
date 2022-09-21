@@ -1,4 +1,11 @@
-import { useContext } from 'react';
-import { AuthContext } from '../providers/AuthProvider';
+import { useSnapshot } from 'valtio';
+import { authState } from '../state';
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => {
+  const { accessToken } = useSnapshot(authState);
+
+  return {
+    isAuth: !!accessToken,
+    accessToken,
+  };
+};

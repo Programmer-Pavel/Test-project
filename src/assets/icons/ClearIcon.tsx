@@ -1,4 +1,5 @@
 import { Theme } from '@emotion/react';
+import React from 'react';
 
 interface ClearIconProps {
   color?: keyof Theme['colors'];
