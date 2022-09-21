@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
+import { ShadowProps } from 'styled-system';
 import { Flex } from '../base/Flex';
 import { Text } from '../base/Text';
 
 const StyledButton = styled.button(
-  (props: BtnStyleProps & ButtonProps) => `
+  (props: BtnStyleProps & ButtonProps & ShadowProps) => `
+
   width: ${props.width || 'auto'};
   height: ${props.height || props.btnSizezStyles.height};
   padding: ${props.iconOnly ? '0px' : props.btnSizezStyles.padding};
@@ -154,7 +156,7 @@ export const Button = ({ size, icon, iconSide, visual, iconOnly, ...props }: But
     iconOnly={iconOnly}
     {...props}
   >
-    <Flex justifyContent={iconOnly ? 'center' : 'space-between'}>
+    <Flex justifyContent={iconOnly || !icon ? 'center' : 'space-between'}>
       {iconOnly ? (
         icon
       ) : (
