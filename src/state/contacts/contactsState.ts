@@ -1,5 +1,4 @@
 import { proxy } from 'valtio';
-import { devtools } from 'valtio/utils';
 import { Contacts } from '../../api';
 import { ContactsStateType } from './contactsStateType';
 
@@ -42,5 +41,3 @@ export const contactsState = proxy<ContactsStateType>({
     }
   },
 });
-
-const unsub = devtools(contactsState, { name: 'authState', enabled: true });

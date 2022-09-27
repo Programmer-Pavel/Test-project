@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { proxy } from 'valtio';
-import { devtools } from 'valtio/utils';
 import { Auth } from '../../api';
 import { RegisterStateType } from './registerStateType';
 
@@ -38,5 +37,3 @@ export const registerState = proxy<RegisterStateType>({
     }, 4000);
   },
 });
-
-const unsub = devtools(registerState, { name: 'authState', enabled: true });

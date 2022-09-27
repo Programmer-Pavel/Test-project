@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { proxy } from 'valtio';
-import { devtools } from 'valtio/utils';
 import { Auth } from '../../api';
 import { AuthStateType } from './authStateType';
 
@@ -45,5 +44,3 @@ export const authState = proxy<AuthStateType>({
     authState.accessToken = '';
   },
 });
-
-const unsub = devtools(authState, { name: 'authState', enabled: true });
